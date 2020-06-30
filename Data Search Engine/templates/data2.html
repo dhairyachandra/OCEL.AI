@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <title>OCEL.AI</title>
+</head>
+<body>
+
+<!-- LOGIN Modal -->
+<div class="modal fade" id="loginpop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content form-elegant">
+            <!--Header-->
+            <div class="modal-header text-center">
+                <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>LOGIN</strong></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body mx-4">
+                <!--Body-->
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Username</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                    </div>
+                </form>
+                <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1">
+                    Password?</a></p>
+            </div>
+
+            <div class="text-center mb-3">
+                <button type="submit" class="btn btn-success" onclick="window.location.href=''">Login</button>
+                <button type="submit" class="btn btn-primary" onclick="window.location.href='guest.html'">Guest Login</button>
+            </div>
+            <div class="modal-footer mx-5 pt-3 mb-1">
+                <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href="#" class="blue-text ml-1"
+                                                                                            data-toggle="modal" data-target="#registerpop">
+                    Register Here</a></p>
+            </div>
+
+        </div>
+    </div>
+    <!--/.Content-->
+</div>
+</div>
+<!-- Modal -->
+
+<!-- Register Modal -->
+<div class="modal fade" id="registerpop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content form-elegant">
+            <!--Header-->
+            <div class="modal-header text-center">
+                <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" ><strong>Register</strong></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body mx-4">
+                <!--Body-->
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Username</label>
+                        <input type="text" class="form-control" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Email ID</label>
+                        <input type="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Re-Password</label>
+                        <input type="password" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="text-center mb-3">
+                <button type="submit" class="btn btn-success">Register</button>
+            </div>
+
+
+        </div>
+    </div>
+    <!--/.Content-->
+</div>
+</div>
+<!-- Modal -->
+
+
+<nav class="navbar navbar-dark" style="background-color: #0277bd">
+    <!-- Navbar content -->
+    <h1 style="margin-top: 20px; margin-bottom: 20px; color: #ffffff">OCEL.AI</h1>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #0288d1">
+    <a class="navbar-brand" href="#">OCEL.AI 4 Steps ></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">STORY TELLER</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">DATA PREPERATION</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">MACHINE LEARNING EXPERIENCES</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">MACHINE LEARNING APPLICATIONS</a>
+            </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <a  href="#" style="margin-right: 10px; color: #ffffff;">Hello, Dhairya</a>
+            <a class="btn btn-outline-light" href="index.html" data-toggle="modal">Logout</a>
+        </form>
+    </div>
+</nav>
+
+
+    <div class="container" style="margin-top: 30px;">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <form class="card card-sm">
+                    <div class="card-body row no-gutters align-items-center">
+                        <div class="col-auto">
+                            <i class="fas fa-search h4 text-body"></i>
+                        </div>
+                        <!--end of col-->
+                        <div class="col">
+                            <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search For Data">
+                        </div>
+                        <!--end of col-->
+                        <div class="col-auto">
+                            <button class="btn btn-lg btn-success" type="submit">Search</button>
+                        </div>
+                        <!--end of col-->
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 60px;">
+            {% for data in  datasetInfo %}
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{data['name']}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Dataset: Kaggle</h6>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                        <a href="{{data['url']}}" class="card-link btn btn-outline-primary" target="_blank">Details</a>
+                        <a href="{{data['distribution'][0]['contentUrl']}}" class="card-link btn btn-outline-success">Load Dataset</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

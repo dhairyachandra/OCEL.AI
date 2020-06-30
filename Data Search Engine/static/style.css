@@ -1,0 +1,15 @@
+.campushead{
+    background-color: #1f5290;
+    padding: 10px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}

@@ -1,0 +1,654 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    body {
+        font-family: Arial;
+    }
+
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+    }
+
+    /* Style the buttons inside the tab */
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        background-color: #ddd;
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+        background-color: #ccc;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
+</style>
+
+<!-- LOGIN Modal -->
+<div class="modal fade" id="loginpop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content form-elegant">
+            <!--Header-->
+            <div class="modal-header text-center">
+                <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">
+                    <strong>LOGIN</strong></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body mx-4">
+                <!--Body-->
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Username</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                    </div>
+                </form>
+                <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1">
+                        Password?</a></p>
+            </div>
+
+            <div class="text-center mb-3">
+                <button type="submit" class="btn btn-success" onclick="window.location.href=''">Login</button>
+                <button type="submit" class="btn btn-primary" onclick="window.location.href='guest.html'">Guest
+                    Login</button>
+            </div>
+            <div class="modal-footer mx-5 pt-3 mb-1">
+                <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href="#"
+                        class="blue-text ml-1" data-toggle="modal" data-target="#registerpop">
+                        Register Here</a></p>
+            </div>
+
+        </div>
+    </div>
+    <!--/.Content-->
+</div>
+</div>
+<!-- Modal -->
+
+<!-- Register Modal -->
+<div class="modal fade" id="registerpop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content form-elegant">
+            <!--Header-->
+            <div class="modal-header text-center">
+                <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3"><strong>Register</strong></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body mx-4">
+                <!--Body-->
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Username</label>
+                        <input type="text" class="form-control" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Email ID</label>
+                        <input type="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Re-Password</label>
+                        <input type="password" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="text-center mb-3">
+                <button type="submit" class="btn btn-success">Register</button>
+            </div>
+
+
+        </div>
+    </div>
+    <!--/.Content-->
+</div>
+</div>
+<!-- Modal -->
+
+
+<nav class="navbar navbar-dark" style="background-color: #0277bd">
+    <!-- Navbar content -->
+    <h1 style="margin-top: 20px; margin-bottom: 20px; color: #ffffff">OCEL.AI</h1>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #0288d1">
+    <a class="navbar-brand" href="#">OCEL.AI 4 Steps ></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">STORY TELLER</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">DATA PREPERATION</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">MACHINE LEARNING EXPERIENCES</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">MACHINE LEARNING APPLICATIONS</a>
+            </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <a href="#" style="margin-right: 10px; color: #ffffff;">Hello, Dhairya</a>
+            <a class="btn btn-outline-light" href="index.html" data-toggle="modal">Logout</a>
+        </form>
+    </div>
+</nav>
+
+<br><br>
+<div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+        <div class="card card-sm">
+            <div class="card-body row no-gutters align-items-center">
+                <div class="col-auto">
+                    <i class="fas fa-search h4 text-body"></i>
+                </div>
+                <!--end of col-->
+                <div class="col">
+                    <input id="searchTerm" class="form-control form-control-lg form-control-borderless"
+                        placeholder="Search topics or keywords" {% if value %} value="{{value}}" {% endif %}>
+                </div>
+                <!--end of col-->
+                <div class="col-auto">
+                    <button id="getSearchTerm" type="button" class="btn btn-lg btn-success"
+                        onclick="getSearchData()">Search</button>
+                </div>
+                <!--end of col-->
+            </div>
+        </div>
+    </div>
+<!--end of col-->
+</div>
+
+<div class="container tab" style="margin-top: 20px;">
+    <button class="tablinks" onclick="openTab(event, 'Kaggle')">Kaggle</button>
+    <button class="tablinks" onclick="openTab(event, 'Data.gov')">Data.gov</button>
+    <button class="tablinks" onclick="openTab(event, 'KCMO.org')">KCMO.org</button>
+    <button class="tablinks" onclick="openTab(event, 'News')">News</button>
+    <button class="tablinks" onclick="openTab(event, 'Facebook')">Facebook</button>
+    <button class="tablinks" onclick="openTab(event, 'Instagram')">Instagram</button>
+    <button class="tablinks" onclick="openTab(event, 'Twitter')">Twitter</button>
+</div>
+<div id="Kaggle" class="tabcontent">
+    <div class="container" style="margin-top: 30px;">
+        <div class="row" style="margin-top: 10px;">
+            <div id="kaggleScroller" class="mb-3">
+                <template id="kaggle_template">
+                    <div class="col">
+                        <div class="card" style="margin-top: 10px;">
+                            <h5 class="card-header" id="kaggleTitle"></h5>
+                            <div class="card-body">
+                                <h6 class="card-text" id="kaggleFileType"></h6>
+                                <h6 class="card-text" id="kaggleDate"></h6>
+                                <p class="card-text" id="kaggleContent"></p>
+                                <a href="" id="kaggleLoadDetails" class="card-link btn btn-outline-primary" target="_blank">Details</a>
+                                <a href="" id="kaggleLoadDataset" class="card-link btn btn-outline-success">Load Dataset</a>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mb-3" id="kaggleSentinel">
+            <div class="spinner-border" role="status"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="Data.gov" class="tabcontent">
+    <div class="container" style="margin-top: 30px;">
+        <div class="row" style="margin-top: 10px;">
+            <div id="datagovScroller" class="mb-3">
+                <template id="datagov_template">
+                    <div class="col">
+                        <div class="card" style="margin-top: 10px;">
+                            <h5 class="card-header" id="datagovTitle"></h5>
+                            <div class="card-body">
+                                <h6 class="card-text" id="datagovFileType"></h6>
+                                <h6 class="card-text" id="datagovDate"></h6>
+                                <p class="card-text" id="datagovContent"></p>
+                                <a href="" id="datagovLoadDetails" class="card-link btn btn-outline-primary" target="_blank">Details</a>
+                                <a href="" id="datagovLoadDataset" class="card-link btn btn-outline-success">Load Dataset</a>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+<div class="d-flex justify-content-center mb-3" id="datagovSentinel">
+    <div class="spinner-border" role="status"></div>
+</div>
+    </div>
+</div>
+
+<div id="KCMO.org" class="tabcontent">
+    <div class="container" style="margin-top: 30px;">
+        <div class="row" style="margin-top: 10px;">
+            <div id="KCMOScroller" class="mb-3">
+                <template id="KCMO_template">
+                    <div class="col">
+                        <div class="card" style="margin-top: 10px;">
+                            <h5 class="card-header" id="KCMOTitle"></h5>
+                            <div class="card-body">
+                                <h6 class="card-text" id="KCMOFileType"></h6>
+                                <h6 class="card-text" id="KCMODate"></h6>
+                                <p class="card-text" id="KCMOContent"></p>
+                                <a href="" id="KCMOLoadDetails" class="card-link btn btn-outline-primary" target="_blank">Details</a>
+                                <a href="" id="KCMOLoadDataset" class="card-link btn btn-outline-success">Load Dataset</a>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mb-3" id="KCMOSentinel">
+            <div class="spinner-border" role="status"></div>
+        </div>
+    </div>
+</div>
+
+<div id="News" class="tabcontent">
+    <div class="container" style="margin-top: 30px;">
+        <div class="row" style="margin-top: 10px;">
+            <div id="newsScroller" class="mb-3">
+                <template id="news_template">
+                    <div class="col">
+                        <div class="card" style="margin-top: 10px;">
+                            <h5 class="card-header" id="newstitle"></h5>
+                            <div class="card-body">
+                                <h6 class="card-text" id="newsfileType"></h6>
+                                <h6 class="card-text" id="newsdate"></h6>
+                                <p class="card-text" id="newscontent"></p>
+                                <a href="" id="newsloadDetails" class="card-link btn btn-outline-primary" target="_blank">Details</a>
+                                <a href="" id="newsloadDataset" class="card-link btn btn-outline-success">Load Dataset</a>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mb-3" id="newsSentinel">
+            <div class="spinner-border" role="status"></div>
+        </div>
+    </div>
+</div>
+
+<div id="Facebook" class="tabcontent">
+    <h3>Facebook</h3>
+    <p>Tokyo is the capital of Japan.</p>
+</div>
+
+<div id="Instagram" class="tabcontent">
+    <h3>Instagram</h3>
+    <p>Tokyo is the capital of Japan.</p>
+</div>
+
+<div id="Twitter" class="tabcontent">
+    <h3>Twitter</h3>
+    <p>Tokyo is the capital of Japan.</p>
+</div>
+
+
+<script>
+    //openTab(event, 'Kaggle');
+    var tab = '';
+    var counter = 0;
+    var loaded = false;
+    var newNews = false;
+    var newKaggle = false;
+    var term = ''
+    var input = document.getElementById("searchTerm");
+    console.log(input);
+    input.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("getSearchTerm").click();
+        }
+    })
+    function openTab(evt, tabName) {
+
+        if (tab != tabName) {
+            console.log(tab);
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+
+            tab = tabName;
+            if (loaded == false){
+                getSearchData();
+                loaded = true;
+            }
+            getSearchTerm();
+        }
+
+    }
+
+    function getSearchData() {
+
+        var searchTerm;
+        searchTerm = document.getElementById('searchTerm').value;
+        if(tab=='Kaggle' && term != searchTerm){
+            newNews= false;
+            newKaggle = false;
+            term = searchTerm;
+        }
+        if(tab=='News' && term != searchTerm){
+            newNews= false;
+            newKaggle = false;
+            term = searchTerm;
+        }
+
+        if(tab=='Data.gov' && term != searchTerm){
+            newNews= false;
+            newKaggle = false;
+            term = searchTerm;
+        }
+        if(tab=='KCMO.org' && term != searchTerm){
+            newNews= false;
+            newKaggle = false;
+            term = searchTerm;
+        }
+
+        switch(tab) {
+            case 'Kaggle': sentinel = document.querySelector('#kaggleSentinel');
+                            if (!newKaggle){
+                                document.getElementById('kaggleScroller').innerHTML = "                <template id=\"kaggle_template\">\n" +
+                                    "                    <div class=\"col\">\n" +
+                                    "                        <div class=\"card\" style=\"margin-top: 10px;\">\n" +
+                                    "                            <h5 class=\"card-header\" id=\"kaggleTitle\"></h5>\n" +
+                                    "                            <div class=\"card-body\">\n" +
+                                    "                                <h6 class=\"card-text\" id=\"kaggleFileType\"></h6>\n" +
+                                    "                                <h6 class=\"card-text\" id=\"kaggleDate\"></h6>\n" +
+                                    "                                <p class=\"card-text\" id=\"kaggleContent\"></p>\n" +
+                                    "                                <a href=\"\" id=\"kaggleLoadDetails\" class=\"card-link btn btn-outline-primary\" target=\"_blank\">Details</a>\n" +
+                                    "                                <a href=\"\" id=\"kaggleLoadDataset\" class=\"card-link btn btn-outline-success\">Load Dataset</a>\n" +
+                                    "                                <br>\n" +
+                                    "                            </div>\n" +
+                                    "                        </div>\n" +
+                                    "                    </div>\n" +
+                                    "                </template>\n";
+                        newKaggle= true;}
+            break;
+            case 'News': sentinel = document.querySelector('#newsSentinel');
+                            if (!newNews){
+                                document.getElementById('newsScroller').innerHTML = "<template id=\"news_template\">\n" +
+                                "                    <div class=\"col\">\n" +
+                                "                        <div class=\"card\" style=\"margin-top: 10px;\">\n" +
+                                "                            <h5 class=\"card-header\" id=\"newstitle\"></h5>\n" +
+                                "                            <div class=\"card-body\">\n" +
+                                "                                <h6 class=\"card-text\" id=\"newsfileType\"></h6>\n" +
+                                "                                <h6 class=\"card-text\" id=\"newsdate\"></h6>\n" +
+                                "                                <p class=\"card-text\" id=\"newscontent\"></p>\n" +
+                                "                                <a href=\"\" id=\"newsloadDetails\" class=\"card-link btn btn-outline-primary\" target=\"_blank\">Details</a>\n" +
+                                "                                <a href=\"\" id=\"newsloadDataset\" class=\"card-link btn btn-outline-success\">Load Dataset</a>\n" +
+                                "                                <br>\n" +
+                                "                            </div>\n" +
+                                "                        </div>\n" +
+                                "                    </div>\n" +
+                                "                </template>";
+                        newNews=true;}
+            break;
+            case 'Data.gov': sentinel = document.querySelector('#datagovSentinel');
+                                document.getElementById('datagovScroller').innerHTML = "<template id=\"datagov_template\">\n" +
+                                    "                    <div class=\"col\">\n" +
+                                    "                        <div class=\"card\" style=\"margin-top: 10px;\">\n" +
+                                    "                            <h5 class=\"card-header\" id=\"datagovTitle\"></h5>\n" +
+                                    "                            <div class=\"card-body\">\n" +
+                                    "                                <h6 class=\"card-text\" id=\"datagovFileType\"></h6>\n" +
+                                    "                                <h6 class=\"card-text\" id=\"datagovDate\"></h6>\n" +
+                                    "                                <p class=\"card-text\" id=\"datagovContent\"></p>\n" +
+                                    "                                <a href=\"\" id=\"datagovLoadDetails\" class=\"card-link btn btn-outline-primary\" target=\"_blank\">Details</a>\n" +
+                                    "                                <a href=\"\" id=\"datagovLoadDataset\" class=\"card-link btn btn-outline-success\">Load Dataset</a>\n" +
+                                    "                                <br>\n" +
+                                    "                            </div>\n" +
+                                    "                        </div>\n" +
+                                    "                    </div>\n" +
+                                    "                </template>";
+            break;
+            case 'KCMO.org': sentinel = document.querySelector('#KCMOSentinel');
+                                document.getElementById('KCMOScroller').innerHTML = "<template id=\"KCMO_template\">\n" +
+                                    "                    <div class=\"col\">\n" +
+                                    "                        <div class=\"card\" style=\"margin-top: 10px;\">\n" +
+                                    "                            <h5 class=\"card-header\" id=\"KCMOTitle\"></h5>\n" +
+                                    "                            <div class=\"card-body\">\n" +
+                                    "                                <h6 class=\"card-text\" id=\"KCMOFileType\"></h6>\n" +
+                                    "                                <h6 class=\"card-text\" id=\"KCMODate\"></h6>\n" +
+                                    "                                <p class=\"card-text\" id=\"KCMOContent\"></p>\n" +
+                                    "                                <a href=\"\" id=\"KCMOLoadDetails\" class=\"card-link btn btn-outline-primary\" target=\"_blank\">Details</a>\n" +
+                                    "                                <a href=\"\" id=\"KCMOLoadDataset\" class=\"card-link btn btn-outline-success\">Load Dataset</a>\n" +
+                                    "                                <br>\n" +
+                                    "                            </div>\n" +
+                                    "                        </div>\n" +
+                                    "                    </div>\n" +
+                                    "                </template>";
+            break;
+        }
+
+        console.log("sentinel Observer");
+        // Instruct the IntersectionObserver to watch the sentinel
+        intersectionObserver.observe(sentinel);
+
+        getSearchTerm();
+    }
+
+    function getSearchTerm() {
+        var counter;
+        //var template = document.querySelector('#post_template');
+        //var scroller = document.querySelector("#scroller");
+
+
+
+        fetch(`/loaddata?source=${tab}&term=${term}`).then((response) => {
+
+            response.json().then((data) => {
+                console.log(data);
+                if (tab=="Kaggle" && data[0].source=="Kaggle") {
+                    scroller = document.querySelector("#kaggleScroller");
+                    template = document.querySelector('#kaggle_template');
+                    for (var i = 0; i < data.length; i++) {
+
+                        // Clone the HTML template
+                        let template_clone = template.content.cloneNode(true);
+                        if(data[i].name) {
+                            console.log("hello")
+
+                            // Query & update the template content
+                            template_clone.querySelector("#kaggleTitle").innerHTML = `${data[i].name} | Size: ${data[i].size}`;
+                            template_clone.querySelector("#kaggleContent").innerHTML = data[i].alternateName;
+                            template_clone.querySelector("#kaggleFileType").innerHTML = `Filetype: ${data[i].fileType}`;
+                            template_clone.querySelector("#kaggleDate").innerHTML = `Last updated: ${data[i].date}`;
+                            template_clone.querySelector("#kaggleLoadDetails").href = data[i].url;
+                            template_clone.querySelector("#kaggleLoadDataset").href = data[i].contentUrl;
+                        }
+
+                        // Append template to dom
+                        scroller.appendChild(template_clone);
+
+                        // Increment the counter
+                        counter += 1;
+
+                        console.log(1);
+
+                        // Update the counter in the navbar
+                        //loaded.innerText = `${counter} items loaded`;
+                    }
+                }
+                else if(tab=="News"){
+                    scroller = document.querySelector("#newsScroller");
+                    template = document.querySelector('#news_template');
+                    console.log("I am in news now");
+                    for (var i = 0; i < data.length; i++) {
+
+                        // Clone the HTML template
+                        let template_clone = template.content.cloneNode(true);
+
+                        // Query & update the template content
+                        template_clone.querySelector("#newstitle").innerHTML = data[i].title;
+                        template_clone.querySelector("#newscontent").innerHTML = data[i].description;
+                        template_clone.querySelector("#newsdate").innerHTML = `Last updated: ${data[i].publishedAt}`;
+                        template_clone.querySelector("#newsloadDetails").href = data[i].url;
+                        template_clone.querySelector("#newsloadDataset").href = "#";
+
+
+                        // Append template to dom
+                        scroller.appendChild(template_clone);
+
+                        // Increment the counter
+                        counter += 1;
+
+                        console.log(1);
+
+                        // Update the counter in the navbar
+                        //loaded.innerText = `${counter} items loaded`;
+                    }
+                }
+                else if(tab=="Data.gov"&& data[0].title!== undefined){
+                    console.log(data);
+                    scroller = document.querySelector("#datagovScroller");
+                    template = document.querySelector('#datagov_template');
+                    for (var i = 0; i < data.length; i++) {
+
+                        // Clone the HTML template
+                        let template_clone = template.content.cloneNode(true);
+                        if(data[i].title) {
+                            console.log("hello")
+
+                            // Query & update the template content
+                            template_clone.querySelector("#datagovTitle").innerHTML = `${data[i].title}`;
+                            template_clone.querySelector("#datagovContent").innerHTML = data[i].notes;
+                            template_clone.querySelector("#datagovFileType").innerHTML = `Filetype: ${data[i].resources[0].format}`;
+                            template_clone.querySelector("#datagovDate").innerHTML = `Last updated: ${data[i].metadata_modified}`;
+                            template_clone.querySelector("#datagovLoadDetails").href = `https://catalog.data.gov/dataset/${data[i].name}`;
+                            template_clone.querySelector("#datagovLoadDataset").href = data[i].resources[0].url;
+                        }
+
+                        // Append template to dom
+                        scroller.appendChild(template_clone);
+
+                        // Increment the counter
+                        counter += 1;
+
+                        console.log(1);
+
+                        // Update the counter in the navbar
+                        //loaded.innerText = `${counter} items loaded`;
+                    }
+                }
+                else if(tab=="KCMO.org"&& data[0].link!== undefined){
+                    scroller = document.querySelector("#KCMOScroller");
+                    template = document.querySelector('#KCMO_template');
+                    console.log(data.length);
+                    for (var i = 0; i < data.length; i++) {
+
+                        // Clone the HTML template
+                        let template_clone = template.content.cloneNode(true);
+
+                            // Query & update the template content
+                            template_clone.querySelector("#KCMOTitle").innerHTML = `${data[i].resource.name}`;
+                            template_clone.querySelector("#KCMOContent").innerHTML = data[i].resource.description;
+                            template_clone.querySelector("#KCMOFileType").innerHTML = `Filetype: ${data[i].resource.type}`;
+                            template_clone.querySelector("#KCMODate").innerHTML = `Last updated: ${data[i].resource.data_updated_at}`;
+                            template_clone.querySelector("#KCMOLoadDetails").href = data[i].permalink;
+                            template_clone.querySelector("#KCMOLoadDataset").href = "#";
+
+                        // Append template to dom
+                        scroller.appendChild(template_clone);
+
+                        // Increment the counter
+                        counter += 1;
+
+                        console.log(1);
+
+                        // Update the counter in the navbar
+                        //loaded.innerText = `${counter} items loaded`;
+                    }
+                }
+            });
+        });
+
+    }
+
+    // Create a new IntersectionObserver instance
+    var intersectionObserver = new IntersectionObserver(entries => {
+
+        console.log("I Ran");
+
+      // Uncomment below to see the entry.intersectionRatio when
+      // the sentinel comes into view
+
+      // entries.forEach(entry => {
+      //   console.log(entry.intersectionRatio);
+      // })
+
+      // If intersectionRatio is 0, the sentinel is out of view
+      // and we don't need to do anything. Exit the function
+      if (entries[0].intersectionRatio <= 0) {
+        return;
+      }
+
+      // Call the loadItems function
+      getSearchTerm();
+
+    });
+
+</script>
+
+{% endblock %}
